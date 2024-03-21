@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">NihongoCards</string>
+    <string name="app_name">Nihongo Cards</string>
+
+    <!-- Main Activity Layout -->
+    <string name="start_game">Start Game</string>
+    <string name="option">Option</string>
+
 </resources>
