@@ -6,10 +6,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import maou.studio.nihongocards.databinding.ActivityOptionsBinding
+import maou.studio.nihongocards.databinding.ActivitySettingsBinding
 
-class OptionsActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityOptionsBinding
+class SettingsActivity : AppCompatActivity() {
+    private lateinit var binding: ActivitySettingsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,13 +17,24 @@ class OptionsActivity : AppCompatActivity() {
         enableEdgeToEdge()
 
         // Binding
-        binding = ActivityOptionsBinding.inflate(layoutInflater)
+        binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Set volume progress
         binding.volumeSeekBar.progress = (MusicPlayerManager.getCurrentVolume() * 100).toInt()
         binding.volumeValueTextView.text =
             getString(R.string.volume_value_format, binding.volumeSeekBar.progress)
+
+        // Update checkbox state
+        updateCheckBoxesState()
+
+        // Set listeners for checkboxes
+        binding.hiraganaCheckBox.setOnCheckedChangeListener { _, isChecked ->
+            HiraganaAlphabet.setPlaying(isChecked)
+        }
+        binding.katakanaCheckBox.setOnCheckedChangeListener { _, isChecked ->
+            KatakanaAlphabet.setPlaying(isChecked)
+        }
 
         binding.volumeSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -42,6 +53,11 @@ class OptionsActivity : AppCompatActivity() {
             insets
         }
 
+    }
+
+    private fun updateCheckBoxesState() {
+        binding.hiraganaCheckBox.isChecked = HiraganaAlphabet.isPlaying()
+        binding.katakanaCheckBox.isChecked = KatakanaAlphabet.isPlaying()
     }
 
 }

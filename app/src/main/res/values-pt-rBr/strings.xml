@@ -3,14 +3,22 @@
     <string name="app_name">Nihongo Cards</string>
 
     <!-- Main Activity Layout -->
-    <string name="start_link">Começar</string>
-    <string name="options_link">Opções</string>
+    <string name="game_link">Começar</string>
+    <string name="settings_link">Opções</string>
 
     <!-- Options Activity Layout -->
-    <string name="options_title">Opções</string>
+    <string name="settings_title">Opções</string>
     <string name="volume_label">Volume da Música</string>
+    <string name="include_hiragana">Hiragana</string>
+    <string name="include_katakana">Katakana</string>
 
     <!-- Options Activity -->
     <string name="volume_value_format">%d%%</string>
+
+    <!-- Game Activity -->
+    <string name="end_game">Fim de Jogo</string>
+    <string name="retry">Quer jogar de novo?</string>
+    <string name="dialog_no">Não</string>
+    <string name="dialog_yes">sim</string>
 
 </resources>

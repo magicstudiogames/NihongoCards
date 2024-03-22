@@ -30,11 +30,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.startButton.setOnClickListener {
-
+            startActivity(Intent(this, GameActivity::class.java).apply {
+                putExtra("isMusicPlaying", MusicPlayerManager.isPlaying())
+            })
         }
 
         binding.optButton.setOnClickListener {
-            startActivity(Intent(this, OptionsActivity::class.java).apply {
+            startActivity(Intent(this, SettingsActivity::class.java).apply {
                 putExtra("isMusicPlaying", MusicPlayerManager.isPlaying())
             })
         }

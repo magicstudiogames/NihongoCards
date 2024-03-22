@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OptionsActivity">
+    tools:context=".SettingsActivity">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/titleTextView"
@@ -13,13 +13,33 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/options_title"
+        android:text="@string/settings_title"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/volumeSeekBar"
+        app:layout_constraintBottom_toTopOf="@+id/hiraganaCheckBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/hiraganaCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/include_hiragana"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/katakanaCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/include_katakana"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hiraganaCheckBox"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/volumeLabelTextView"
@@ -29,7 +49,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/volume_label"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/katakanaCheckBox" />
 
     <SeekBar
         android:id="@+id/volumeSeekBar"
