@@ -9,7 +9,6 @@
     <!-- Options Activity Layout -->
     <string name="options_title">Opções</string>
     <string name="volume_label">Volume da Música</string>
-    <string name="volume_value">50%</string>
 
     <!-- Options Activity -->
     <string name="volume_value_format">%d%%</string>

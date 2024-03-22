@@ -3,12 +3,11 @@
 
     <!-- Main Activity Layout -->
     <string name="start_link">Start Game</string>
-    <string name="options_link">Option</string>
+    <string name="options_link">Settings</string>
 
     <!-- Options Activity Layout -->
     <string name="options_title">Options</string>
     <string name="volume_label">Music Volume</string>
-    <string name="volume_value">50%</string>
 
     <!-- Options Activity -->
     <string name="volume_value_format">%d%%</string>

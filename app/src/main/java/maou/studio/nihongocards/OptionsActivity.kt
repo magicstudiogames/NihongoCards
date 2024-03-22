@@ -22,7 +22,8 @@ class OptionsActivity : AppCompatActivity() {
 
         // Set volume progress
         binding.volumeSeekBar.progress = (MusicPlayerManager.getCurrentVolume() * 100).toInt()
-        binding.volumeValueTextView.text = getString(R.string.volume_value_format, binding.volumeSeekBar.progress)
+        binding.volumeValueTextView.text =
+            getString(R.string.volume_value_format, binding.volumeSeekBar.progress)
 
         binding.volumeSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
