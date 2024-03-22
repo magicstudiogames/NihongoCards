@@ -1,16 +1,16 @@
 package maou.studio.nihongocards
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import maou.studio.nihongocards.databinding.ActivityMainBinding
-import android.media.MediaPlayer
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private  lateinit var mediaPlayer: MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,19 +21,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // MediaPlayer
-        mediaPlayer = MediaPlayer.create(this, R.raw.soudtrack)
-        mediaPlayer.isLooping = true
+        // MusicPlayer
+        MusicPlayerManager.initialize(this)
+        MusicPlayerManager.start()
 
         // Buttons Config
         binding.musicButton.setOnClickListener {
-            if (mediaPlayer.isPlaying){
-                mediaPlayer.pause()
-                binding.musicButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.music_off_round, 0,0,0)
-            } else {
-                mediaPlayer.start()
-                binding.musicButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.music_note_round, 0,0,0)
-            }
+            toggleMusicPlayback()
         }
 
         binding.startButton.setOnClickListener {
@@ -41,7 +35,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.optButton.setOnClickListener {
-
+            startActivity(Intent(this, OptionsActivity::class.java).apply {
+                putExtra("isMusicPlaying", MusicPlayerManager.isPlaying())
+            })
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
@@ -54,18 +50,27 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        mediaPlayer.start()
-        binding.musicButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.music_note_round, 0,0,0)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        mediaPlayer.pause()
+        updateMusicButtonIcon()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        mediaPlayer.release()
+        MusicPlayerManager.stop()
+    }
+
+    private fun toggleMusicPlayback() {
+        if (MusicPlayerManager.isPlaying()) {
+            MusicPlayerManager.pause()
+        } else {
+            MusicPlayerManager.start()
+        }
+        updateMusicButtonIcon()
+    }
+
+    private fun updateMusicButtonIcon() {
+        val iconResource =
+            if (MusicPlayerManager.isPlaying()) R.drawable.music_note_round else R.drawable.music_off_round
+        binding.musicButton.setCompoundDrawablesWithIntrinsicBounds(iconResource, 0, 0, 0)
     }
 
 }

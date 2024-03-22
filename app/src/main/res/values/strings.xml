@@ -2,7 +2,15 @@
     <string name="app_name">Nihongo Cards</string>
 
     <!-- Main Activity Layout -->
-    <string name="start_game">Start Game</string>
-    <string name="option">Option</string>
+    <string name="start_link">Start Game</string>
+    <string name="options_link">Option</string>
+
+    <!-- Options Activity Layout -->
+    <string name="options_title">Options</string>
+    <string name="volume_label">Music Volume</string>
+    <string name="volume_value">50%</string>
+
+    <!-- Options Activity -->
+    <string name="volume_value_format">%d%%</string>
 
 </resources>
