@@ -1,4 +1,4 @@
-package maou.studio.nihongocards
+package maou.studio.nihongocards.objects
 
 object KatakanaAlphabet {
 
