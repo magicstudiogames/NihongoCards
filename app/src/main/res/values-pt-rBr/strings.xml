@@ -5,6 +5,7 @@
     <!-- Main Activity Layout -->
     <string name="game_link">Começar</string>
     <string name="settings_link">Opções</string>
+    <string name="aoi_kuma">Aoi Kuma: Nihongo Cards</string>
 
     <!-- Options Activity Layout -->
     <string name="settings_title">Opções</string>

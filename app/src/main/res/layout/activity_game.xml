@@ -9,13 +9,13 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/cardTextView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_margin="16dp"
         android:background="@drawable/card_background"
         android:gravity="center"
         android:textColor="@android:color/black"
-        android:textSize="99sp"
+        android:textSize="125sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
