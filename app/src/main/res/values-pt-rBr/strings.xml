@@ -22,5 +22,9 @@
     <string name="dialog_no">Não</string>
     <string name="dialog_yes">sim</string>
     <string name="card_progress">%1$d/%2$d</string>
+    <string name="brief_description">Breve descrição</string>
+    <string name="do_you_want_to_go_back_to_the_home_screen">Quer voltar para a tela inicial?</string>
+    <string name="no">Não</string>
+    <string name="yes">Sim</string>
 
 </resources>

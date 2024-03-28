@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:title="@string/settings_title">
+
+    <androidx.preference.PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:summary="@string/brief_description"
+        app:title="@string/settings_title">
+
+        <!-- Os mesmos podem ser recuparados com SharedPrefence -->
+        <androidx.preference.CheckBoxPreference
+            app:iconSpaceReserved="false"
+            app:key="enable_hiragana"
+            app:summary="@string/brief_description"
+            app:title="@string/include_hiragana" />
+
+        <androidx.preference.CheckBoxPreference
+            app:iconSpaceReserved="false"
+            app:key="enable_katakana"
+            app:summary="@string/brief_description"
+            app:title="@string/include_katakana" />
+
+        <androidx.preference.SeekBarPreference
+            app:iconSpaceReserved="false"
+            app:key="adjust_sound"
+            app:summary="@string/brief_description"
+            app:title="@string/volume_label" />
+
+    </androidx.preference.PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>
